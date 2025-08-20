@@ -23,6 +23,9 @@ const App: React.FC = () => {
     ));
   };
 
+
+  const isMobile = window.innerWidth < 600;
+
   return (
     <div style={{
       minHeight: '100vh',
@@ -30,20 +33,24 @@ const App: React.FC = () => {
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      gap: '40px',
+      gap: isMobile ? '20px' : '40px',
       background: 'linear-gradient(135deg, #d3d3d4ff, #6b8bb8ff)',
-      fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif'
+      fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif',
+      padding: isMobile ? '10px' : '0',
+      boxSizing: 'border-box'
     }}>
       <div style={{
-        width: '45vw',
+        width: '100%',
+        maxWidth: '500px',
         backgroundColor: 'white',
         boxShadow: '0 6px 20px rgba(0, 0, 0, 0.15)',
-        padding: '20px 25px 60px',
+        padding: isMobile ? '15px 8px 30px' : '20px 25px 60px',
         borderRadius: '12px',
-        marginTop: '-20px',
+        marginTop: isMobile ? '0' : '-20px',
+        boxSizing: 'border-box'
       }}>
         <h1 style={{
-          fontSize: '2.2rem',
+          fontSize: isMobile ? '1.5rem' : '2.2rem',
           fontWeight: 700,
           marginBottom: '15px',
           textAlign: 'center',
@@ -55,16 +62,18 @@ const App: React.FC = () => {
       </div>
 
       <div style={{
-        width: '25vw',
+        width: '100%',
+        maxWidth: '350px',
         backgroundColor: 'white',
         boxShadow: '0 6px 15px rgba(133, 133, 133, 0.3)',
-        padding: '25px',
+        padding: isMobile ? '15px' : '25px',
         borderRadius: '12px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'stretch',
         gap: '15px',
-        marginTop: '-25px'
+        marginTop: isMobile ? '0' : '-25px',
+        boxSizing: 'border-box'
       }}>
         <input
           type="text"
@@ -72,17 +81,18 @@ const App: React.FC = () => {
           onChange={(e) => setTaskInput(e.target.value)}
           placeholder="Add a new task"
           style={{
-            padding: '20px 14px',
+            padding: isMobile ? '12px 8px' : '20px 14px',
             fontSize: '1rem',
-            minWidth: '20vw',
+            width: '100%',
             borderRadius: '8px',
             border: 'none',
+            boxSizing: 'border-box'
           }}
         />
         <button
           onClick={addTask}
           style={{
-            padding: '10px',
+            padding: isMobile ? '8px' : '10px',
             fontSize: '1rem',
             fontWeight: 600,
             backgroundColor: '#007bff',
