@@ -32,12 +32,8 @@ const List: React.FC<ListProps> = ({ todos, toggleTodo }) => {
     <>
       <style>
         {`
-          .hide-scrollbar {
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE and Edge */
-          }
           .hide-scrollbar::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, Opera */
+            display: none; 
           }
         `}
       </style>
